@@ -1,1 +1,1 @@
-grep -o -h -E "\d{10}" *.txt
+grep -o -w -E "\d{10}" 
