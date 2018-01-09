@@ -48,7 +48,7 @@ fi
 #	VS=$INVOICENUMBER
 #fi
 
-echo -n "VARIABLESYMBO=$VS"
+echo -n "VARIABLESYMBOL=$VS"
 
 if [ "$INVOICENUMBER" = "$VS" ]
 then
@@ -57,9 +57,9 @@ else
 	echo " !!! "
 fi
 
-DATEINVOICE=`grep -iE "Dátum (vystavenia|vyhotovenia)" "$1" | grep -oE "\d{2}\.\d{1,2}\.20\d{2}" | head -n 1`
-DATEPROVIDED=`grep -iE "Dátum dodania" "$1" | grep -oE "\d{2}\.\d{1,2}\.20\d{2}" | head -n 1`
-DATEPAYMENT=`grep -iE "splatnos" "$1" | grep -oE "\d{2}\.\d{1,2}\.20\d{2}" | head -n 1`
+DATEINVOICE=`grep -iE "Dátum (vystavenia|vyhotovenia)" "$1" | grep -oE "\d{2}\. ?\d{1,2}\. ?20\d{2}" | head -n 1`
+DATEPROVIDED=`grep -iE "Dátum dodania" "$1" | grep -oE "\d{2}\. ?\d{1,2}\. ?20\d{2}" | head -n 1`
+DATEPAYMENT=`grep -iE "splatnos" "$1" | grep -oE "\d{2}\. ?\d{1,2}\. ?20\d{2}" | head -n 1`
 
 echo DATEINVOICE=$DATEINVOICE
 echo DATEPROVIDED=$DATEPROVIDED
@@ -79,4 +79,22 @@ fi
 
 echo SUM=$SUM
 
-#echo "insert into faktury values"
+IBAN=`grep -o -w -E "[A-Z]{2}\d{22}" "$1"`
+
+echo IBAN=$IBAN
+
+
+
+echo "insert into faktury set ProviderID='"$ICOPROVIDER"',CustomerID='"$ICOCUSTOMER"',\
+ProviderTAXID='"$DICPROVIDER"',\
+CustomerTAXID='"$DICCUSTOMER"',\
+ProviderEUVATID='"$EUVATIDPROVIDER"',\
+CustomerEUVATID='"$EUVATIDCUSTOMER"',\
+InvoiceNumber='"$INVOICENUMBER"',\
+VariableSymbol='"$VS"',\
+DateInvoice=STR_TO_DATE('"$DATEINVOICE"','%d.%m.%Y'),\
+DateProvided=STR_TO_DATE('"$DATEPROVIDED"','%d.%m.%Y'),\
+DatePayment=STR_TO_DATE('"$DATEPAYMENT"','%d.%m.%Y'),\
+Total='"$SUM"',\
+IBAN='"$IBAN"'"
+
