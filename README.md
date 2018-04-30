@@ -15,14 +15,12 @@ The following info is extracted:
 
 Warning: This is work in progress. No warranty about extracted data.
 
-License warning: 
-I have not yet made my mind about the licence. **Until then, you are legally prohibited from using this code.**
+Licence:
+This program is free to use and modify, under two conditions:
+1. This licence is preserved.
+2. I  prohibit any **state agency** or any agency working **for the state** or **on state's behalf**, especially for the purpose of **tax collection or tax control**, from using this software. (I refuse to help the state to gain an advantage over its citizens, while the citizens must comply with complicated tax codes or other tax-related nonsense. The reverse, is however ok: I have no objections if the citizens excercise control over the public instititions.)
 
-I am a fan of FLOSS and I intent to release this code as open-source but I intent to specifically prohibit any **state agency** or any agency working **for the state** or **on state's behalf**, especially for the purpose of **tax collection or tax control**, from using this software.
-I simply refuse to help the state to gain an advantage over its citizens, while the citizens must comply with complicated tax codes or other tax-related nonsense.
-The reverse, is however ok: I have no objections if the citizens excercise control over the public instititions.
-
-Intended allowed use is:
+Allowed use:
 * processing your invoices (if you are not a state agency), or 
 * processing invoices of your customers, where the direct customer, or indirect (customer's customer etc.) must not be a state agency, or 
 * processing invoices of public institutions for the purpose of public control.
